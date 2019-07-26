@@ -18,6 +18,21 @@ public class Autor extends Pessoa{
     }
     
     private String instituicaoVinculada ;
+    
 
+    public String getInstituicaoVinculada() {
+        return instituicaoVinculada;
+    }
+
+    public void setInstituicaoVinculada(String instituicaoVinculada) {
+        this.instituicaoVinculada = instituicaoVinculada;
+    }
+
+    @Override
+    public String toString() {
+        return "Autor{" + "instituicaoVinculada=" + instituicaoVinculada + '}';
+    }
+    
+    
    
 }
