@@ -6,21 +6,40 @@
 package dominio;
 
 import java.io.Serializable;
+import javax.persistence.Embedded;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.xml.crypto.Data;
 
 /**
  *
  * @author kaique
  */
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 public class Pessoa implements Serializable{
-    
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
     private String nome;
     private String cpf;
     private int idade;
+    @Temporal(TemporalType.DATE)
     private Data dataNascimento;
+    @Embedded
     private Endereco endereco;
 
-    public Pessoa(String nome, String cpf, int idade, Data dataNascimento, Endereco endereco) {
+    public Pessoa() {
+    }
+
+    public Pessoa(int id, String nome, String cpf, int idade, Data dataNascimento, Endereco endereco) {
+        this.id = id;
         this.nome = nome;
         this.cpf = cpf;
         this.idade = idade;
@@ -68,5 +87,14 @@ public class Pessoa implements Serializable{
         this.endereco = endereco;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    
     
 }

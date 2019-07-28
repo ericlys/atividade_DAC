@@ -7,18 +7,42 @@ package dominio;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author kaique
  */
+@Entity
 public class Livro implements Serializable{
     
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
     private String titulo;
     private String ISBN; 
+    @Temporal(TemporalType.DATE)
     private Date lancamento;
-
+    
+    @ManyToMany(mappedBy = "Autor")
+    private List<Autor> autores;
+    
     public Livro() {
+    }
+
+    public Livro(int id, String titulo, String ISBN, Date lancamento, List<Autor> autores) {
+        this.id = id;
+        this.titulo = titulo;
+        this.ISBN = ISBN;
+        this.lancamento = lancamento;
+        this.autores = autores;
     }
 
     public String getTitulo() {
@@ -43,6 +67,22 @@ public class Livro implements Serializable{
 
     public void setLancamento(Date lancamento) {
         this.lancamento = lancamento;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public List<Autor> getAutores() {
+        return autores;
+    }
+
+    public void setAutores(List<Autor> autores) {
+        this.autores = autores;
     }
     
     

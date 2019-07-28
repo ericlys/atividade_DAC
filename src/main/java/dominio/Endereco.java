@@ -5,11 +5,14 @@
  */
 package dominio;
 
+import java.io.Serializable;
+import javax.persistence.Embeddable;
 /**
  *
  * @author ericl
  */
-public class Endereco {
+@Embeddable
+public class Endereco implements Serializable{
     private String rua;
     private String bairrro;
     private String cidade;
@@ -53,6 +56,10 @@ public class Endereco {
     public void setCEP(String CEP) {
         this.CEP = CEP;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Endereco{" + "rua=" + rua + ", bairrro=" + bairrro + ", cidade=" + cidade + ", CEP=" + CEP + '}';
+    }  
     
 }

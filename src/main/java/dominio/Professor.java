@@ -6,16 +6,27 @@
 package dominio;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CollectionTable;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
 import javax.xml.crypto.Data;
 
 /**
  *
  * @author kaique
  */
-public class Professor implements Serializable{
+@Entity
+public class Professor extends Pessoa implements Serializable{
     
-   
+    @ElementCollection
+    @CollectionTable(name = "Telefones")
+   private List<Telefone> telefones;
     private double salario;
+
+    public Professor(int id, String nome, String cpf, int idade, Data dataNascimento, Endereco endereco) {
+        super(id, nome, cpf, idade, dataNascimento, endereco);
+    }
 
     public double getSalario() {
         return salario;
