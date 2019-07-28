@@ -25,7 +25,10 @@ public class Endereco implements Serializable{
         this.CEP = CEP;
     }
 
-    public String getRua() {
+    public Endereco() {
+    }
+    
+     public String getRua() {
         return rua;
     }
 

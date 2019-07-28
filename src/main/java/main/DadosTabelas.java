@@ -72,7 +72,7 @@ public class DadosTabelas {
                 "Ryan Nathan Luan Ribeiro", 
                 "598.146.124-13", 
                 30,
-                Date.valueOf(LocalDate.of(19889, Month.OCTOBER, 23)),
+                Date.valueOf(LocalDate.of(1989, Month.OCTOBER, 23)),
                 new Endereco(
                        "Rua Sérgio Moreira 64",
                         "Centro",
