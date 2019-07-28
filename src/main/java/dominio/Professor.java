@@ -6,11 +6,11 @@
 package dominio;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.CollectionTable;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.xml.crypto.Data;
 
 /**
  *
@@ -24,10 +24,16 @@ public class Professor extends Pessoa implements Serializable{
    private List<Telefone> telefones;
     private double salario;
 
-    public Professor(int id, String nome, String cpf, int idade, Data dataNascimento, Endereco endereco) {
-        super(id, nome, cpf, idade, dataNascimento, endereco);
+    public Professor(List<Telefone> telefones, double salario, String nome, String cpf, int idade, Date dataNascimento, Endereco endereco) {
+        super(nome, cpf, idade, dataNascimento, endereco);
+        this.telefones = telefones;
+        this.salario = salario;
     }
 
+    public Professor() {
+      
+    }
+    
     public double getSalario() {
         return salario;
     }

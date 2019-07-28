@@ -9,9 +9,6 @@ import java.io.Serializable;
 import javax.persistence.Embeddable;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
 /**
  *
  * @author kaique
@@ -19,16 +16,18 @@ import javax.persistence.Id;
 @Embeddable
 public class Telefone implements Serializable{
     
-    @Id
-    @GeneratedValue 
-    private int Id;
     private String numero;
-    @Enumerated(EnumType.ORDINAL)
-    private TelefoneType typo;
+    @Enumerated(EnumType.STRING)
+    private TelefoneType tipo;
 
     public Telefone() {
     }
 
+    public Telefone(String numero, TelefoneType tipo) {
+        this.numero = numero;
+        this.tipo = tipo;
+    }
+    
     public String getNumero() {
         return numero;
     }
@@ -37,21 +36,15 @@ public class Telefone implements Serializable{
         this.numero = numero;
     }
 
-    public TelefoneType getTypo() {
-        return typo;
+    public TelefoneType getTipo() {
+        return tipo;
     }
 
-    public void setTypo(TelefoneType typo) {
-        this.typo = typo;
+    public void setTypo(TelefoneType tipo) {
+        this.tipo = tipo;
     }
 
-    public int getId() {
-        return Id;
+    public void setTipo(TelefoneType tipo) {
+        this.tipo = tipo;
     }
-
-    public void setId(int Id) {
-        this.Id = Id;
     }
-    
-    
-}

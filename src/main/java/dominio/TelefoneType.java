@@ -10,5 +10,5 @@ package dominio;
  * @author kaique
  */
 public enum TelefoneType {
-    RESIDENCIAL, COMERCIAL
+    RESIDENCIAL, COMERCIAL;
 }

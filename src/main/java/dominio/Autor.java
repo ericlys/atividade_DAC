@@ -7,6 +7,7 @@ package dominio;
 
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -16,7 +17,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.xml.crypto.Data;
 
 /**
  *
@@ -24,9 +24,6 @@ import javax.xml.crypto.Data;
  */
 @Entity
 public class Autor extends Pessoa implements Serializable{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
      private String instituicaoVinculada ;
      
     @ManyToMany(cascade = CascadeType.ALL)
@@ -35,12 +32,15 @@ public class Autor extends Pessoa implements Serializable{
         inverseJoinColumns = @JoinColumn(name = "autor_id", referencedColumnName = "id"))
     private List<Livro> livros;
 
-    public Autor(int id, String nome, String cpf, int idade, Data dataNascimento, Endereco endereco, String instituicaoVinculada, List<Livro> livros) {
-        super(id, nome, cpf, idade, dataNascimento, endereco);
+    public Autor(String nome, String cpf, int idade, Date dataNascimento, Endereco endereco, String instituicaoVinculada, List<Livro> livros) {
+        super(nome, cpf, idade, dataNascimento, endereco);
         this.instituicaoVinculada = instituicaoVinculada;
         this.livros = livros;
     }
 
+    public Autor() {
+    }
+   
    public String getInstituicaoVinculada() {
         return instituicaoVinculada;
     }
@@ -49,14 +49,6 @@ public class Autor extends Pessoa implements Serializable{
         this.instituicaoVinculada = instituicaoVinculada;
     }
     
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public List<Livro> getLivros() {
         return livros;
     }
@@ -67,9 +59,7 @@ public class Autor extends Pessoa implements Serializable{
 
     @Override
     public String toString() {
-        return "Autor{" + "id=" + id + ", instituicaoVinculada=" + instituicaoVinculada + ", livros=" + livros + '}';
+        return "Autor{" + "instituicaoVinculada=" + instituicaoVinculada + ", livros=" + livros + '}';
     }
-    
-    
-   
+
 }

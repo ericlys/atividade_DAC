@@ -14,13 +14,13 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Endereco implements Serializable{
     private String rua;
-    private String bairrro;
+    private String bairo;
     private String cidade;
     private String CEP;
 
-    public Endereco(String rua, String bairrro, String cidade, String CEP) {
+    public Endereco(String rua, String bairo, String cidade, String CEP) {
         this.rua = rua;
-        this.bairrro = bairrro;
+        this.bairo = bairo;
         this.cidade = cidade;
         this.CEP = CEP;
     }
@@ -33,12 +33,12 @@ public class Endereco implements Serializable{
         this.rua = rua;
     }
 
-    public String getBairrro() {
-        return bairrro;
+    public String getBairo() {
+        return bairo;
     }
 
-    public void setBairrro(String bairrro) {
-        this.bairrro = bairrro;
+    public void setBairrro(String bairo) {
+        this.bairo = bairo;
     }
 
     public String getCidade() {
@@ -59,7 +59,7 @@ public class Endereco implements Serializable{
 
     @Override
     public String toString() {
-        return "Endereco{" + "rua=" + rua + ", bairrro=" + bairrro + ", cidade=" + cidade + ", CEP=" + CEP + '}';
+        return "Endereco{" + "rua=" + rua + ", bairrro=" + bairo + ", cidade=" + cidade + ", CEP=" + CEP + '}';
     }  
     
 }

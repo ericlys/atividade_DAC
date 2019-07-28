@@ -5,17 +5,9 @@
  */
 package dominio;
 
+import javax.persistence.*;
 import java.io.Serializable;
-import javax.persistence.Embedded;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Inheritance;
-import javax.persistence.InheritanceType;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import javax.xml.crypto.Data;
+import java.util.Date;
 
 /**
  *
@@ -31,15 +23,14 @@ public class Pessoa implements Serializable{
     private String cpf;
     private int idade;
     @Temporal(TemporalType.DATE)
-    private Data dataNascimento;
+    private Date dataNascimento;
     @Embedded
     private Endereco endereco;
 
     public Pessoa() {
     }
 
-    public Pessoa(int id, String nome, String cpf, int idade, Data dataNascimento, Endereco endereco) {
-        this.id = id;
+    public Pessoa(String nome, String cpf, int idade, Date dataNascimento, Endereco endereco) {
         this.nome = nome;
         this.cpf = cpf;
         this.idade = idade;
@@ -71,11 +62,11 @@ public class Pessoa implements Serializable{
         this.idade = idade;
     }
 
-    public Data getDataNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(Data dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
@@ -94,7 +85,7 @@ public class Pessoa implements Serializable{
     public void setId(int id) {
         this.id = id;
     }
-
+    
     
     
 }

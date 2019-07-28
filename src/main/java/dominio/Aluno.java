@@ -3,11 +3,9 @@ package dominio;
 
 import java.io.Serializable;
 import java.util.Date;
-import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.xml.crypto.Data;
 
 /**
  *
@@ -20,13 +18,16 @@ public class Aluno extends Pessoa implements Serializable{
     private Date dataIngrsso;
     private String turma;
 
-    public Aluno(String matricula, Date dataIngrsso, String turma, int id, String nome, String cpf, int idade, Data dataNascimento, Endereco endereco) {
-        super(id, nome, cpf, idade, dataNascimento, endereco);
+    public Aluno(String matricula, Date dataIngrsso, String turma, String nome, String cpf, int idade, Date dataNascimento, Endereco endereco) {
+        super(nome, cpf, idade, dataNascimento, endereco);
         this.matricula = matricula;
         this.dataIngrsso = dataIngrsso;
         this.turma = turma;
     }
-
+  
+    public Aluno() {
+    }
+    
     public String getMatricula() {
         return matricula;
     }

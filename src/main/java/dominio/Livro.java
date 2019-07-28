@@ -31,14 +31,13 @@ public class Livro implements Serializable{
     @Temporal(TemporalType.DATE)
     private Date lancamento;
     
-    @ManyToMany(mappedBy = "Autor")
+    @ManyToMany(mappedBy = "livros")
     private List<Autor> autores;
     
     public Livro() {
     }
 
-    public Livro(int id, String titulo, String ISBN, Date lancamento, List<Autor> autores) {
-        this.id = id;
+    public Livro( String titulo, String ISBN, Date lancamento, List<Autor> autores) {
         this.titulo = titulo;
         this.ISBN = ISBN;
         this.lancamento = lancamento;
