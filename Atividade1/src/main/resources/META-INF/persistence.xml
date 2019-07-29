@@ -2,11 +2,11 @@
 <persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
   <persistence-unit name="AtividadeJPA" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
-    <class>dominio.Aluno</class>
-    <class>dominio.Autor</class>
     <class>dominio.Livro</class>
-    <class>dominio.Pessoa</class>
+    <class>dominio.Autor</class>
+    <class>dominio.Aluno</class>
     <class>dominio.Professor</class>
+    <class>dominio.Pessoa</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/dacjpadb"/>
       <property name="javax.persistence.jdbc.user" value="dacjpadb"/>
