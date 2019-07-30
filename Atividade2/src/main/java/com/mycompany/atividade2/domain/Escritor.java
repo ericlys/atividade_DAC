@@ -1,7 +1,7 @@
 package com.mycompany.atividade2.domain;
 
-import com.sun.javafx.scene.control.skin.VirtualFlow;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -17,7 +17,7 @@ public class Escritor extends Pessoa implements Serializable {
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    private List<Publicacao> publicacoes = new VirtualFlow.ArrayLinkedList<>();
+    private List<Publicacao> publicacoes = new ArrayList<>();
 
     public Escritor() {
     }
