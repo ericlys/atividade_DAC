@@ -3,6 +3,7 @@ package main;
 import dominio.Aluno;
 import dominio.Autor;
 import dominio.Endereco;
+import dominio.Livro;
 import dominio.Professor;
 import dominio.Telefone;
 import dominio.TelefoneType;
@@ -12,7 +13,6 @@ import java.time.Month;
 import java.util.ArrayList;
 import java.util.Arrays;
 import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
 
 /**
  *
@@ -20,10 +20,7 @@ import javax.persistence.Persistence;
  */
 public class DadosTabelas {
     public static void main(String[] args) {
-        EntityManager em = Persistence
-            .createEntityManagerFactory("AtividadeJPA")
-            .createEntityManager();
-        
+        EntityManager em = EntityManagerUtil.getEntityManager();
         
         Aluno[] alunos = {
          new Aluno("2019001", Date.valueOf(LocalDate.of(2019, Month.JANUARY, 12)), "ADS",
@@ -94,6 +91,41 @@ public class DadosTabelas {
                 )
         )};
         
+        Livro[] livros = {
+			new Livro(
+					"9783958459038",
+					" Working effectively with legacy code",
+					Date.valueOf(LocalDate.of(2004,Month.SEPTEMBER,01)),
+					new ArrayList<>()
+
+			),
+			new Livro(
+					"9780201485370",
+					"Design Patterns",
+					Date.valueOf(LocalDate.of(1994,Month.OCTOBER,21)),
+					new ArrayList<>()
+			),
+			new Livro(
+					"9780132350884",
+					"Clean Code",
+					Date.valueOf(LocalDate.of(2008,Month.AUGUST,07)),
+					new ArrayList<>()
+			),
+			new Livro(
+					"9780132702256",
+					"Java Concurrency in Practice",
+					Date.valueOf(LocalDate.of(2006,Month.JANUARY,01)),
+					new ArrayList<>()
+			),
+			new Livro(
+					"9780321125217",
+					"Domain Driven Design",
+					Date.valueOf(LocalDate.of(2003,Month.JANUARY,01)),
+					new ArrayList<>()
+			)
+
+	};
+        
        Autor[] autores  = {
            new Autor(
                 "Giovanna Aurora Rocha",
@@ -107,7 +139,7 @@ public class DadosTabelas {
                         "79037-801"
                 ),
                 "instVinc1",
-                new ArrayList<>()
+                Arrays.asList(livros[0])
         ),
        
         
@@ -123,7 +155,7 @@ public class DadosTabelas {
                         "76813-242"
                 ),
                 "instVinc2",
-                new ArrayList<>()
+                Arrays.asList(livros[1])
         ),
          
           new Autor(
@@ -138,7 +170,7 @@ public class DadosTabelas {
                         "64034-428"
                 ),
                 "instVinc1",
-                new ArrayList<>()
+                Arrays.asList(livros[2])
         ),
           
          new Autor(
@@ -153,7 +185,7 @@ public class DadosTabelas {
                         "63501-155"
                 ),
                 "instVinc2",
-                new ArrayList<>()
+                Arrays.asList(livros[3])
         ),
            
           new Autor(
@@ -168,7 +200,7 @@ public class DadosTabelas {
                         "29171-417"
                 ),
                 "instVinc1",
-                new ArrayList<>()
+                Arrays.asList(livros[4])
         )};
             
             
@@ -284,6 +316,9 @@ public class DadosTabelas {
 		}
 		for (Professor professor : professores) {
 			em.persist(professor);
+		}
+                for(Livro l:livros){
+			em.persist(l);
 		}
          em.getTransaction().commit();
     }
