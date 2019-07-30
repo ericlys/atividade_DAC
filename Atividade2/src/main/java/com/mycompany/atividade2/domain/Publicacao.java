@@ -24,14 +24,15 @@ public class Publicacao implements Serializable{
     
     @OneToMany
     @JoinColumn(name = "area_Id")
-    private List<Object> areas = new ArrayList<Object>();
+    private List<Area> areas;
 
     public Publicacao() {
     }
 
-    public Publicacao(int codPublicacao, String titulo) {
-        this.codPublicacao = codPublicacao;
+  public Publicacao(String titulo, Escritor escritor, List<Area> areas) {
         this.titulo = titulo;
+        this.escritor = escritor;
+        this.areas = areas;
     }
 
     public int getCodPublicacao() {
@@ -58,13 +59,12 @@ public class Publicacao implements Serializable{
         this.escritor = escritor;
     }
 
-    public List<Object> getAreas() {
+    public List<Area> getAreas() {
         return areas;
     }
 
-    public void setAreas(List<Object> areas) {
+    public void setAreas(List<Area> areas) {
         this.areas = areas;
     }
-    
-    
+ 
 }
