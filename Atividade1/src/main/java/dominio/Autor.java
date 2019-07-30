@@ -11,9 +11,6 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -28,8 +25,8 @@ public class Autor extends Pessoa implements Serializable{
      
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "autor_livro",
-        joinColumns = @JoinColumn(name = "livro_id", referencedColumnName = "id"),
-        inverseJoinColumns = @JoinColumn(name = "autor_id", referencedColumnName = "id"))
+        joinColumns = @JoinColumn(name = "autor_id", referencedColumnName = "id"),
+        inverseJoinColumns = @JoinColumn(name = "livro_id", referencedColumnName = "id"))
     private List<Livro> livros;
 
     public Autor(String nome, String cpf, int idade, Date dataNascimento, Endereco endereco, String instituicaoVinculada, List<Livro> livros) {
