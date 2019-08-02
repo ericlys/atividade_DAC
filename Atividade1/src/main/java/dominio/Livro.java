@@ -83,6 +83,11 @@ public class Livro implements Serializable{
     public void setAutores(List<Autor> autores) {
         this.autores = autores;
     }
+
+    @Override
+    public String toString() {
+        return "Livro{" + "id=" + id + ", titulo=" + titulo + ", ISBN=" + ISBN + ", lancamento=" + lancamento + ", autores=" + autores + '}';
+    }
     
     
 }
