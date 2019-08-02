@@ -93,33 +93,34 @@ public class DadosTabelas {
         
         Livro[] livros = {
 			new Livro(
+                                        " Working effectively with legacy code",
 					"9783958459038",
-					" Working effectively with legacy code",
+					
 					Date.valueOf(LocalDate.of(2004,Month.SEPTEMBER,01)),
 					new ArrayList<>()
 
 			),
 			new Livro(
+                                        "Design Patterns",
 					"9780201485370",
-					"Design Patterns",
 					Date.valueOf(LocalDate.of(1994,Month.OCTOBER,21)),
 					new ArrayList<>()
 			),
 			new Livro(
-					"9780132350884",
-					"Clean Code",
+                                        "Clean Code",
+					"9780132350884",					
 					Date.valueOf(LocalDate.of(2008,Month.AUGUST,07)),
 					new ArrayList<>()
 			),
-			new Livro(
-					"9780132702256",
+			new Livro(                                
 					"Java Concurrency in Practice",
+					"9780132702256",
 					Date.valueOf(LocalDate.of(2006,Month.JANUARY,01)),
 					new ArrayList<>()
 			),
 			new Livro(
-					"9780321125217",
 					"Domain Driven Design",
+					"9780321125217",
 					Date.valueOf(LocalDate.of(2003,Month.JANUARY,01)),
 					new ArrayList<>()
 			)
