@@ -23,7 +23,7 @@ public class DadosTabelas {
         EntityManager em = EntityManagerUtil.getEntityManager();
         
         Aluno[] alunos = {
-         new Aluno("2019001", Date.valueOf(LocalDate.of(2019, Month.JANUARY, 12)), "ADS",
+         new Aluno("2019001", Date.valueOf(LocalDate.of(2019, Month.JANUARY, 12)), "2019.1",
                 "Vitória Caroline Lima", 
                 "109.581.472-99", 
                 24,
@@ -37,7 +37,7 @@ public class DadosTabelas {
         ),
         
         
-         new Aluno("2019002", Date.valueOf(LocalDate.of(2019, Month.JANUARY, 12)), "ADS",
+         new Aluno("2019002", Date.valueOf(LocalDate.of(2019, Month.JANUARY, 12)), "2019.1",
                 "Filipe Luan Yago Galvão", 
                 "585.280.327-87", 
                 25,
@@ -51,7 +51,7 @@ public class DadosTabelas {
         ),
         
         
-         new Aluno("2019003", Date.valueOf(LocalDate.of(2019, Month.JANUARY, 12)), "ADS",
+         new Aluno("2019003", Date.valueOf(LocalDate.of(2019, Month.JANUARY, 12)), "2019.2",
                 "Giovanna Tereza Allana Lopes", 
                 "611.512.097-75", 
                 30,
@@ -65,7 +65,7 @@ public class DadosTabelas {
         ),
         
        
-         new Aluno("2019004", Date.valueOf(LocalDate.of(2019, Month.JANUARY, 12)), "ADS",
+         new Aluno("2019004", Date.valueOf(LocalDate.of(2019, Month.JANUARY, 12)), "2019.2",
                 "Ryan Nathan Luan Ribeiro", 
                 "598.146.124-13", 
                 30,
@@ -78,7 +78,7 @@ public class DadosTabelas {
                 )
         ),
         
-         new Aluno("2019005", Date.valueOf(LocalDate.of(2019, Month.JANUARY, 12)), "ADS",
+         new Aluno("2019005", Date.valueOf(LocalDate.of(2019, Month.JANUARY, 12)), "2019.1",
                 "Rebeca Alice Ferreira", 
                 "117.417.754-34", 
                 25,
@@ -123,13 +123,37 @@ public class DadosTabelas {
 					"9780321125217",
 					Date.valueOf(LocalDate.of(2003,Month.JANUARY,01)),
 					new ArrayList<>()
+			),
+                        new Livro(
+					"Pro JPA 2: Mastering the Java Persistence API",
+					"1430219564",
+					Date.valueOf(LocalDate.of(2009,Month.OCTOBER,31)),
+					new ArrayList<>()
+			),
+                        new Livro(
+					"EJB 3 profissional: java persistence API",
+					"8573936967",
+					Date.valueOf(LocalDate.of(2008,Month.JANUARY, 01)),
+					new ArrayList<>()
+			),
+                        new Livro(
+					"História e vida de Padre Rolin",
+					"5393936967",
+					Date.valueOf(LocalDate.of(2019,Month.JANUARY, 06)),
+					new ArrayList<>()
+			),
+                        new Livro(
+					"Brasileirinhos do sertão",
+					"8578235628",
+					Date.valueOf(LocalDate.of(2019,Month.OCTOBER, 29)),
+					new ArrayList<>()
 			)
 
 	};
         
        Autor[] autores  = {
            new Autor(
-                "Giovanna Aurora Rocha",
+                "Jéssica Catarina Farias",
                 "968.634.771-22",
                 58,
                 Date.valueOf(LocalDate.of(1961, Month.AUGUST, 05)),
@@ -152,8 +176,8 @@ public class DadosTabelas {
                 new Endereco(
                         "Rua Cemetron",
                         "São Francisco",
-                        "Porto Velho",
-                        "76813-242"
+                        "Cajazeiras",
+                        "58910-000"
                 ),
                 "instVinc2",
                 Arrays.asList(livros[1])
@@ -202,7 +226,65 @@ public class DadosTabelas {
                 ),
                 "instVinc1",
                 Arrays.asList(livros[4])
-        )};
+                ),
+   
+           new Autor(
+                "Mike Keith",
+                "200.786.179-88",
+                36,
+                Date.valueOf(LocalDate.of(1982, Month.NOVEMBER, 21)),
+                new Endereco(
+                        "Rua Acauã",
+                        "Serra Dourada III",
+                        "Serra",
+                        "29171-417"
+                ),
+                "instVinc1",
+                Arrays.asList(livros[5], livros[6])
+        ),
+           
+           new Autor(
+                "Merrick Schincariol",
+                "200.786.239-88",
+                37,
+                Date.valueOf(LocalDate.of(1982, Month.JANUARY, 18)),
+                new Endereco(
+                        "Rua Acauã",
+                        "Serra Dourada III",
+                        "Serra",
+                        "29171-417"
+                ),
+                "instVinc1",
+                Arrays.asList(livros[5])),
+                   
+               new Autor(
+                "Tânia Luna Bruna Gomes",
+                "246.002.944-67",
+                37,
+                Date.valueOf(LocalDate.of(1995, Month.MAY, 26)),
+                new Endereco(
+                        "Rua do Comércio, s/n",
+                        "Centro",
+                        "Cajazeiras",
+                        "58900-971"
+                ),
+                "instVinc1",
+                Arrays.asList(livros[7])),
+                            
+             new Autor(
+                "Nathan José Nogueira",
+                "415.450.875-04",
+                28,
+                Date.valueOf(LocalDate.of(1991, Month.MARCH, 22)),
+                new Endereco(
+                        "Rua Coronel Juvêncio Carneiro 489",
+                        "Centro",
+                        "Cajazeiras ",
+                        "58900-970"
+                ),
+                "instVinc1",
+                Arrays.asList(livros[8]))
+        };
             
             
              Telefone[][] telefones= {
@@ -224,7 +306,11 @@ public class DadosTabelas {
 			},
 			{ 
 				new Telefone("(27) 2946-0755", TelefoneType.RESIDENCIAL),
-				new Telefone("(27) 99756-4909", TelefoneType.COMERCIAL)
+				new Telefone("(27) 99756-4908", TelefoneType.COMERCIAL)
+                        },
+                        { 
+				new Telefone("(22) 3861-4448", TelefoneType.RESIDENCIAL),
+				new Telefone("(22) 98468-2745", TelefoneType.COMERCIAL)
 			}
 			
 	};
@@ -302,6 +388,34 @@ public class DadosTabelas {
                            Date.valueOf(LocalDate.of(1982, Month.DECEMBER, 27)),
                            new Endereco(
                                    "Rua Constelação",
+                                   "São Francisco",
+                                   "Porto Velho",
+                                   "76813-352"
+                           )  
+            ),
+              new Professor(
+                           null,
+                           4600,
+                           "Cláudia Clara Peixoto",
+                           "152.984.935-72",
+                           37,
+                           Date.valueOf(LocalDate.of(1982, Month.DECEMBER, 9)),
+                           new Endereco(
+                                   "que atividade fácil",
+                                   "São Francisco",
+                                   "Porto Velho",
+                                   "76813-352"
+                           )  
+            ),
+              new Professor(
+                           Arrays.asList(telefones[5]),
+                           4600,
+                           "Emilly Regina das Neves",
+                           "780.636.860-47",
+                           40,
+                           Date.valueOf(LocalDate.of(1979, Month.NOVEMBER, 23)),
+                           new Endereco(
+                                   "que atividade fácil",
                                    "São Francisco",
                                    "Porto Velho",
                                    "76813-352"
