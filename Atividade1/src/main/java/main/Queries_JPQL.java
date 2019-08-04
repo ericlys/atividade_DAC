@@ -32,8 +32,8 @@ public class Queries_JPQL {
 
     //Uma consulta que selecione todos os professores que possuem Telefone e residem na rua “Que atividade fácil”.
     private static void professorTelefoneRuaAtividadeFacil(EntityManager em){
-        String jpql = "SELECT professor FROM Professor professor LEFT JOIN (professor.Telefone) telefone "
-                + "WHERE telefone IS NOT NULL AND LOWER(professor.endereco.rua) LIKE '%que atividade fácil%'";
+        String jpql = "SELECT DISTINCT professor FROM Professor professor LEFT JOIN professor.telefones telefone "
+                + "WHERE telefone.numero IS NOT NULL AND LOWER(professor.endereco.rua) LIKE '%que atividade fácil%'";
         TypedQuery<Professor> query = em.createQuery(jpql, Professor.class);
         query.getResultList().forEach(p -> System.out.println(p.getNome()));
     }
