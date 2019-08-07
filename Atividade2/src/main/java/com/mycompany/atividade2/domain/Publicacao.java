@@ -2,6 +2,7 @@ package com.mycompany.atividade2.domain;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -21,8 +22,7 @@ public class Publicacao implements Serializable{
     @JoinColumn(name="escritor_Id")
     private Escritor escritor;
     
-    @OneToMany
-    @JoinColumn(name = "area_Id")
+    @OneToMany( cascade ={CascadeType.ALL})  
     private List<Area> areas;
 
     public Publicacao() {
@@ -65,5 +65,9 @@ public class Publicacao implements Serializable{
     public void setAreas(List<Area> areas) {
         this.areas = areas;
     }
- 
+
+    @Override
+    public String toString() {
+        return "Publicacao{" + "codPublicacao=" + codPublicacao + ", titulo=" + titulo + ", escritor=" + escritor + ", areas=" + areas + '}';
+    }  
 }
