@@ -42,5 +42,10 @@ public class Escritor extends Pessoa implements Serializable {
     public void setPublicacoes(List<Publicacao> publicacoes) {
         this.publicacoes = publicacoes;
     }
+
+    @Override
+    public String toString() {
+        return "Escritor{" + "premios=" + premios + ", publicacoes=" + publicacoes + '}';
+    }
     
 }
