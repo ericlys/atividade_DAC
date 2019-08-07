@@ -8,7 +8,6 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.Arrays;
-import java.util.List;
 import javax.persistence.EntityManager;
 
 public class Persistir {
@@ -75,7 +74,11 @@ public class Persistir {
                     "Tecnologia"
             ),
             new Area(
+                    3,
                     "Design"
+            ),
+            new Area(
+                    "Industria"
             )
     };
         
@@ -104,7 +107,18 @@ public class Persistir {
                     "Primeiros passos com o Angular Material", 
                     escritores[4], 
                     Arrays.asList(areas[2])
+            ),
+             new Publicacao(
+                    "Novidades da Industia moderna", 
+                    escritores[0], 
+                    Arrays.asList(areas[3])
+            ),
+             new Publicacao(
+                    "java 9: ​​new features", 
+                    escritores[2], 
+                    Arrays.asList(areas[0])
             )
+
         };
         
         em.getTransaction().begin();
@@ -125,6 +139,8 @@ public class Persistir {
                  revisores[2].setPublicacoes(Arrays.asList(publicacoes[2]));
                  revisores[3].setPublicacoes(Arrays.asList(publicacoes[3]));
                  revisores[3].setPublicacoes(Arrays.asList(publicacoes[4]));
+                 revisores[0].setPublicacoes(Arrays.asList(publicacoes[5]));
+                 revisores[3].setPublicacoes(Arrays.asList(publicacoes[6]));
         em.getTransaction().commit();
         em.close();
     }
