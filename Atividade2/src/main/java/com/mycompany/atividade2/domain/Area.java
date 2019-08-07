@@ -15,6 +15,11 @@ public class Area implements Serializable {
     public Area() {
     }
 
+    public Area(int cod, String nome) {
+        this.cod = cod;
+        this.nome = nome;
+    }
+    
     public Area(String nome) {
         this.nome = nome;
     }
